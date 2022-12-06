@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie/criar_conta_page.dart';
 import 'package:movie/home_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class CriarConta extends StatefulWidget {
+  const CriarConta({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<CriarConta> createState() => _CriarContaState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  String _email = '';
-  String _senha = '';
-
+class _CriarContaState extends State<CriarConta> {
   @override
   Widget build(BuildContext context) {
-    FocusScopeNode currentFocus = FocusScope.of(context);
-
+    var _containerSize = MediaQuery.of(context).size.height * 0.05;
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -28,19 +23,17 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(
             horizontal: 40,
-            vertical: 70,
+            vertical: _containerSize,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 15,
-              ),
+              SizedBox(height: 15),
               Text(
-                'Login',
+                'Crie a sua conta',
                 style: GoogleFonts.poppins(
                   textStyle: TextStyle(color: Color(0xffFFFFFF)),
-                  fontSize: 30,
+                  fontSize: 29,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -60,10 +53,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 10),
                   TextField(
-                    onChanged: (txt) {
-                      _email = txt;
-                      print(_email);
-                    },
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       filled: true,
@@ -81,13 +70,8 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                  )
-                ],
-              ),
-              SizedBox(height: 50),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
+                  ),
+                  SizedBox(height: 40),
                   Text(
                     'Senha',
                     style: GoogleFonts.poppins(
@@ -100,10 +84,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 10),
                   TextField(
-                    onChanged: (txt) {
-                      _senha = txt;
-                      print(_senha);
-                    },
                     obscureText: true,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
@@ -123,88 +103,70 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text('Esqueceu a senha ?'),
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStatePropertyAll(Colors.grey),
-                      alignment: Alignment.topLeft,
+                  SizedBox(height: 40),
+                  Text(
+                    'Confirmar Senha',
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        color: Color(0xffFFFFFF),
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  TextField(
+                    obscureText: true,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey,
+                      prefixIcon: Icon(Icons.lock, color: Colors.white),
+                      hintText: 'Confirmar senha',
+                      hintStyle: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          color: Color(0xffFFFFFF),
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 53),
+                  Container(
+                    padding: EdgeInsets.only(left: 20, right: 20),
+                    width: _containerSize * 0.7,
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomePage()));
+                      },
+                      child: Text(
+                        'Criar Conta',
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff64C661),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 50),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.7,
-                height: 48,
-                child: ElevatedButton(
-                  child: Text(
-                    'Continuar',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff64C661),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  onPressed: () {
-                    if (!currentFocus.hasPrimaryFocus) {
-                      currentFocus.unfocus();
-                    }
-                    if (_email == 'costavitor.8@hotmail.com' &&
-                        _senha == 'senha') {
-                      print('Acesso permitido');
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                    }
-                  },
-                ),
-              ),
-              SizedBox(height: 5),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.64,
-                child: Row(
-                  children: [
-                    Text(
-                      'Não tem uma conta ?',
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    TextButton(
-                      child: Text(
-                        'Registre-se',
-                        style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                          color: Color(0xff925FF0),
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        )),
-                      ),
-                      onPressed: () {
-                        if (!currentFocus.hasPrimaryFocus) {
-                          currentFocus.unfocus();
-                        }
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => CriarConta())));
-                      },
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),

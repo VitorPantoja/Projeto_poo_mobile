@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie/criar_conta_page.dart';
 import 'package:movie/login_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -10,6 +11,8 @@ class AppWidget extends StatelessWidget {
       title: 'MovieDB',
       debugShowCheckedModeBanner: false,
       home: LoginPage(),
+      //home: CriarConta(),
+      //home: CadastroConfirmado(),
     );
   }
 }
