@@ -141,9 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 16,
-              ),
+              SizedBox(height: 5),
               Container(
                 width: MediaQuery.of(context).size.width * 0.64,
                 child: Row(
