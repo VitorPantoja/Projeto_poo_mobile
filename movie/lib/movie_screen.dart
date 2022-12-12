@@ -88,7 +88,7 @@ class _MovieScreenState extends State<MovieScreen> {
                       ),
                     ),
                     Container(
-                      padding: const EdgeInsets.only(top: 27, left: 8),
+                      padding: const EdgeInsets.only(top: 2, left: 8),
                       child: Row(
                         children: [
                           Text('Equipe:',
@@ -107,7 +107,7 @@ class _MovieScreenState extends State<MovieScreen> {
                               itemBuilder: ((context, index) {
                                 return Container(
                                   padding:
-                                      const EdgeInsets.only(top: 35, left: 20),
+                                      const EdgeInsets.only(top: 30, left: 20),
                                   height: 100,
                                   width: 120,
                                   child: Column(
@@ -118,7 +118,7 @@ class _MovieScreenState extends State<MovieScreen> {
                                           decoration: TextDecoration.underline,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
-                                          fontSize: 20,
+                                          fontSize: 15,
                                         ),
                                       ),
                                       Text(

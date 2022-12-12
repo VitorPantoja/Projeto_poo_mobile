@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   List movies = [];
   Future getMovie() async {
     const apiUrl =
-        'http://192.168.0.6:8080/api/movies?offset=0&limit=15&sort=ASC';
+        'http://192.168.0.15:8080/api/movies?offset=0&limit=15&sort=ASC';
 
     final http.Response response = await http.get(Uri.parse(apiUrl));
 
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   List movieSuspense = [];
   Future getMovieSuspense() async {
     const apiUrl =
-        'http://192.168.0.6:8080/api/movies/findByGenre/2?offset=0&limit=25&sort=ASC';
+        'http://192.168.0.15:8080/api/movies/findByGenre/2?offset=0&limit=25&sort=ASC';
 
     final http.Response response = await http.get(Uri.parse(apiUrl));
 
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
   List movieTerror = [];
   Future getMovieTerror() async {
     const apiUrl =
-        'http://192.168.0.6:8080/api/movies/findByGenre/1?offset=0&limit=25&sort=ASC';
+        'http://192.168.0.15:8080/api/movies/findByGenre/1?offset=0&limit=25&sort=ASC';
 
     final http.Response response = await http.get(Uri.parse(apiUrl));
 
