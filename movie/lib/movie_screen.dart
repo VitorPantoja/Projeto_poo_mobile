@@ -1,13 +1,10 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie/home_page.dart';
 
 class MovieScreen extends StatefulWidget {
   Map<String, dynamic> filme;
-  MovieScreen(this.filme);
+  MovieScreen(this.filme, {super.key});
 
   @override
   State<MovieScreen> createState() => _MovieScreenState();
@@ -30,7 +27,7 @@ class _MovieScreenState extends State<MovieScreen> {
                       image: NetworkImage(widget.filme['image']),
                       fit: BoxFit.cover,
                       colorFilter:
-                          ColorFilter.mode(Colors.black87, BlendMode.darken)),
+                          const ColorFilter.mode(Colors.black87, BlendMode.darken)),
                 ),
                 child: Column(
                   children: [
@@ -100,7 +97,6 @@ class _MovieScreenState extends State<MovieScreen> {
                           Container(
                             height: 100,
                             width: 320,
-                            //padding: const EdgeInsets.only(left: 8),
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: team.length,
@@ -142,12 +138,12 @@ class _MovieScreenState extends State<MovieScreen> {
             ),
             expandedHeight: 700,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 print(team);
                 //print(widget.filme['atores'][0]['name']);
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+                    MaterialPageRoute(builder: (context) => const HomePage()));
               },
             ),
           ),
